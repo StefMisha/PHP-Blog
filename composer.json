@@ -1,0 +1,16 @@
+{
+    "name": "vendor/autoload",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Mikhail",
+            "email": "email"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Vendor\\Autoload\\": "src/"
+        }
+    }
+}
