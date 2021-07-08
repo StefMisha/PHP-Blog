@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="Основной шаблон" />
+    <orderEntry type="module" module-name="Mini tasks" />
+    <orderEntry type="module" module-name="MVCfw" />
+    <orderEntry type="module" module-name="place" />
+    <orderEntry type="module" module-name="nuxt-learning" />
+  </component>
+</module>

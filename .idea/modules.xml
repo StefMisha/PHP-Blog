@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../MVCfw/.idea/MVCfw.iml" filepath="$PROJECT_DIR$/../MVCfw/.idea/MVCfw.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../MiniTasks/.idea/Mini tasks.iml" filepath="$PROJECT_DIR$/../MiniTasks/.idea/Mini tasks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/myTraining.iml" filepath="$PROJECT_DIR$/.idea/myTraining.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../nuxt-learning/.idea/nuxt-learning.iml" filepath="$PROJECT_DIR$/../nuxt-learning/.idea/nuxt-learning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../place/.idea/place.iml" filepath="$PROJECT_DIR$/../place/.idea/place.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Шаблоны. Шаблон выбра/Основной шаблон/.idea/Основной шаблон.iml" filepath="$PROJECT_DIR$/Шаблоны. Шаблон выбра/Основной шаблон/.idea/Основной шаблон.iml" />
+    </modules>
+  </component>
+</project>

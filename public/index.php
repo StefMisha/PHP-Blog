@@ -1,6 +1,6 @@
 <?php
 
-use src\Controllers\MainController;
+use app\Controllers\MainController;
 
 spl_autoload_register(function (string $className) {
     require_once __DIR__ . '/../' . str_replace('\\', DIRECTORY_SEPARATOR, $className) . '.php';
@@ -8,9 +8,26 @@ spl_autoload_register(function (string $className) {
 
 
 $route = $_GET['route'] ?? '';
+$routes = require __DIR__ . '/../routes/web.php';
 
-$routes = require __DIR__ . '/../routes/routes.php';
-echo '<pre>';
-var_dump($routes);
+$isRouteFound = false;
+foreach ($routes as $pattern => $controllerAndAction) {
+    preg_match($pattern, $route, $matches);
+    if (!empty($matches)) {
+        $isRouteFound = true;
+        break;
+    }
+}
 
-echo 'Страница не найдена';
+if (!$isRouteFound) {
+    echo 'Страница не найдена!';
+    return;
+}
+
+unset($matches[0]);
+
+$controllerName = $controllerAndAction[0];
+$actionName = $controllerAndAction[1];
+
+$controller = new $controllerName();
+$controller->$actionName(... $matches);
