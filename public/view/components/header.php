@@ -36,7 +36,7 @@
         <ul class="mobile-menu">
           <li class="has-sub"><a href="#">Home <i class="sub-icon fa fa-angle-down"></i></a>
             <ul class="sub-menu">
-              <li><a href="main.php">Standard Posts</a></li>
+              <li><a href="main/main.php">Standard Posts</a></li>
               <li><a href="../home-recent.html">Recent Posts</a></li>
               <li><a href="../home-masonry.html">Masonry Posts</a></li>
               <li><a href="../home-list.html">List Posts</a></li>
@@ -98,7 +98,7 @@
           </div>
           <div class="col-lg-4 align-self-center">
             <div class="logo">
-              <a href="main.php"><img src="../../images/logo.png" alt=""></a>
+              <a href="main/main.php"><img src="../../images/logo.png" alt=""></a>
             </div>
           </div>
           <div class="col-lg-4 align-self-center">
@@ -119,7 +119,7 @@
       <div class="container expanded">
         <div class="header-wrap">
           <div class="header-logo">
-            <a href="main.php"><img src="../../images/logo.png" alt=""></a>
+            <a href=".."><img src="../../images/logo.png" alt=""></a>
           </div>
           <div class="header-nav">
               <ul class="main-menu">

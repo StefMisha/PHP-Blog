@@ -1,6 +1,8 @@
 <?php
 
-use app\Controllers\MainController;
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
 spl_autoload_register(function (string $className) {
     require_once __DIR__ . '/../' . str_replace('\\', DIRECTORY_SEPARATOR, $className) . '.php';
@@ -20,8 +22,8 @@ foreach ($routes as $pattern => $controllerAndAction) {
 }
 
 if (!$isRouteFound) {
-    echo 'Страница не найдена!';
-    return;
+    include_once __DIR__ . '/view/errors/404.php';
+    return 404;
 }
 
 unset($matches[0]);

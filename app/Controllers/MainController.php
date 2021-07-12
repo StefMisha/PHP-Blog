@@ -2,11 +2,15 @@
 
 namespace app\Controllers;
 
+use app\Models\Articles\Article;
 use app\View\View;
 
 class MainController
 {
-    private $view;
+    /**
+     * @var View
+     */
+    private View $view;
 
     public function __construct()
     {
@@ -15,11 +19,14 @@ class MainController
 
     public function main()
     {
-        $articles = [
-            ['name' => 'Статья 1', 'text' => 'Текст статьи 1'],
-            ['name' => 'Статья 2', 'text' => 'Текста статьи 2']
-        ];
-        $this->view->renderHTML('main/main.php', ['articles' => $articles]);
+        $articles = Article::All(); //подготовленный запрос передаю в метод query объекта класса бд
+//        $articleAuthorId = User::findId($articles->getAuthorId());
+
+        $this->view->renderHTML('main/main.php', [
+            'articles' => $articles,
+//            'articleAuthorId' => $articleAuthorId
+
+        ]);
     }
 
     public function sayHello($name) {

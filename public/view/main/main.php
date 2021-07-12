@@ -81,29 +81,29 @@
         </div>
       </div>
     </div>
-
-    <section class="medium-gap call-to-action">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="main-content">
-              <div class="row">
-                <div class="col-lg-9">
-                  <div class="left-content">
-                    <h2><em>Shareen</em> newest personal <em>Blog</em> Template!</h2>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div class="normal-white-button">
-                    <a href="#">Purchase Now</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<!---->
+<!--    <section class="medium-gap call-to-action">-->
+<!--      <div class="container">-->
+<!--        <div class="row">-->
+<!--          <div class="col-lg-12">-->
+<!--            <div class="main-content">-->
+<!--              <div class="row">-->
+<!--                <div class="col-lg-9">-->
+<!--                  <div class="left-content">-->
+<!--                    <h2><em>Shareen</em> newest personal <em>Blog</em> Template!</h2>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-3">-->
+<!--                  <div class="normal-white-button">-->
+<!--                    <a href="#">Purchase Now</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>-->
 
     <section class="medium-gap standard-home">
       <div class="container">
@@ -115,18 +115,18 @@
                 <div class="col-lg-12">
                   <div class="standard-post">
                     <div class="post-image">
-                      <a href="../single-standard-post.html"><img src="http://placehold.it/770x320" alt=""></a>
+                      <a href="/articles/<?= $article->getId() ?>"><img src="http://placehold.it/770x320" alt=""></a>
                     </div>
                     <div class="down-content">
                       <div class="meta-category">
                         <span>PHP</span>
                       </div>
-                      <a href="../single-standard-post.html"><h4><em><?= $article['name'] ?></em></h4></a>
+                      <a href="/articles/<?= $article->getId() ?>"><h4><em><?= $article->getName() ?></em></h4></a>
                       <ul class="post-info">
-                        <li><a href="#">January 10, 2020</a></li>
-                        <li><a href="#">Admin</a></li>
+                        <li><a href="#"><?= $article->getCreatedAt() ?></a></li>
+                        <li><a href="#"><?= $article->getAuthor()->getNickName() ?></a></li>
                       </ul>
-                      <p><?= $article['text'] ?></p>
+                      <p><?= $article->getText() ?></p>
                       <div class="row">
                         <div class="col-lg-6 col-md-6">
                           <div class="comments-info">
