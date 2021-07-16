@@ -16,7 +16,7 @@ class User extends BaseModel
     protected $authToken;
     protected $createdAt;
 
-    public static function getTableName()
+    public static function getTableName(): string
     {
         return 'users';
     }
@@ -25,10 +25,10 @@ class User extends BaseModel
     {
         return $this->nickname;
     }
+
     public function getEmail()
     {
         return $this->email;
     }
-
 
 }

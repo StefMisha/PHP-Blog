@@ -16,6 +16,7 @@ class ArticlesController
     public function show(int $id)
     {
         $article = Article::find($id);
+
         if (!$article) {
             $this->view->renderHTML('errors/404.php', [], 404);
             return;
@@ -25,6 +26,40 @@ class ArticlesController
             'article' => $article,
         ]);
     }
+
+    public function edit($id)
+    {
+        $article = Article::find($id);
+
+        if(!$article) {
+            $this->view->renderHTML('errors/404.php', [], 404);
+            return;
+        }
+        $article->setName('Москва любит');
+        $article->setText('New text');
+//        $article->setCreatedAt();
+        $article->save();
+    }
+
+    public function create()
+    {
+        $author = User::find(1);
+
+        $article = new Article();
+        $article->setAuthor($author);
+        $article->setName('Ну че');
+        $article->setText('3й пост');
+        $article->setCreatedAt();
+
+        echo '<pre>';
+        var_dump($article);
+        $article->save();
+
+        echo '<pre>';
+        var_dump($article);
+    }
+
+
 
 }
 

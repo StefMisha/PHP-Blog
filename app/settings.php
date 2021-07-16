@@ -1,6 +1,6 @@
 <?php
 
-return [
+return [ //TODO:как .env настроить?
     'connection_mysql' => [
         'host' => 'tutorial_db',
         'dbname' => 'tutorial',
