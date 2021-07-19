@@ -16,7 +16,7 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: secret
     ports:
-      - '3306:3306'
+      - '3307:3307'
     networks:
       - Blog
   blog-nginx:
@@ -37,7 +37,7 @@ services:
       - './:/var/www'
       - './docker/app/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini'
     ports:
-      - '9000:9000'
+      - '9001:9000' #менять порты на 9000:9000
     depends_on:
       - blog-mysql
     restart: unless-stopped

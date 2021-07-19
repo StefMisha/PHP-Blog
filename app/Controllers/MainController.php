@@ -20,12 +20,9 @@ class MainController
     public function main()
     {
         $articles = Article::All(); //подготовленный запрос передаю в метод query объекта класса бд
-//        $articleAuthorId = User::findId($articles->getAuthorId());
 
         $this->view->renderHTML('main/main.php', [
             'articles' => $articles,
-//            'articleAuthorId' => $articleAuthorId
-
         ]);
     }
 

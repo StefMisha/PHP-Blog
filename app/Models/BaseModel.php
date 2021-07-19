@@ -53,14 +53,14 @@ abstract class BaseModel
     {
         $db = Db::getInstance();
         return $db->query(
-            'SELECT * FROM `' . static::getTableName() . '`;', [], static::class);
+            'SELECT * FROM ' . static::getTableName() . ';', [], static::class);
     }
 
     public static function find($id)
     {
         $db = Db::getInstance();
         $result = $db->query(
-            'SELECT * FROM `' . static::getTableName() . '` WHERE id=:id;',
+            'SELECT * FROM ' . static::getTableName() . ' WHERE id=:id;',
             [':id' => $id],
             static::class
         );
@@ -115,4 +115,15 @@ abstract class BaseModel
 
         $this->id = $db->getLastInsertId();
     }
+
+    public function delete($id)
+    {
+        $db = Db::getInstance();
+        $db->query(
+            'DELETE FROM `' . static::getTableName() . '` WHERE id = :id',
+            [':id' => $id]
+        );
+        $this->id = null;
+    }
+
 }

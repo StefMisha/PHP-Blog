@@ -2,6 +2,7 @@
 
 namespace app\Controllers;
 
+use app\Exceptions\NotFoundException;
 use app\Models\Articles\Article;
 use app\Models\User\User;
 use app\View\View;
@@ -17,9 +18,8 @@ class ArticlesController
     {
         $article = Article::find($id);
 
-        if (!$article) {
-            $this->view->renderHTML('errors/404.php', [], 404);
-            return;
+        if ($article === null) {
+            throw new NotFoundException();
         }
 
         $this->view->renderHTML('article/show.php', [
@@ -31,9 +31,8 @@ class ArticlesController
     {
         $article = Article::find($id);
 
-        if(!$article) {
-            $this->view->renderHTML('errors/404.php', [], 404);
-            return;
+        if($article === null) {
+            throw new NotFoundException();
         }
         $article->setName('Москва любит');
         $article->setText('New text');
@@ -59,7 +58,13 @@ class ArticlesController
         var_dump($article);
     }
 
-
-
+    public function delete($id)
+    {
+        $article = Article::find($id);
+        if ($article === null){
+            throw new NotFoundException();
+        }
+        $article->delete($id);
+    }
 }
 

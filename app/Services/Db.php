@@ -3,6 +3,8 @@
 
 namespace app\Services;
 
+use app\Exceptions\DbException;
+
 date_default_timezone_set('Europe/Moscow');
 
 class Db
@@ -13,12 +15,17 @@ class Db
     private function __construct()
     {
         $dbOption = (require __DIR__ . '/../settings.php')['connection_mysql']; //поделючаем файл с настройками бд
-        $this->pdo = new \PDO( //подключаемся к бд
-            'mysql:host=' . $dbOption['host'] . ';dbname=' . $dbOption['dbname'],
-            $dbOption['user'],
-            $dbOption['password']
-        );
-        $this->pdo->exec('SET NAME UTF8');
+
+        try {
+            $this->pdo = new \PDO( //подключаемся к бд
+                'mysql:host=' . $dbOption['host'] . ';dbname=' . $dbOption['dbname'],
+                $dbOption['user'],
+                $dbOption['password']
+            );
+            $this->pdo->exec('SET NAME UTF8');
+        } catch (\PDOException $e) {
+            throw new DbException('Ошибка при подключении к базе данных: ' . $e->getMessage());
+        }
     }
 
     public static function getInstance(): self

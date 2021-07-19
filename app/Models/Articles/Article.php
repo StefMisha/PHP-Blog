@@ -10,7 +10,7 @@ class Article extends BaseModel
     protected $authorId;
     protected $name;
     protected $text;
-//    protected $createdAt;
+    protected $createdAt; //мешает создавать?
 
     public static function getTableName(): string
     {

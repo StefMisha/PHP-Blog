@@ -56,26 +56,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="about-author">
-                                <div class="author-image">
-                                    <img src="http://placehold.it/140x140" alt="">
-                                </div>
-                                <div class="right-content">
-                                    <h6>Shareen Robertson</h6>
-                                    <p>Franzen tumeric sriracha and quinoa goard next level. Cold-pressed kinfolk cronut shoreditch freegan kistrater selfies.</p>
-                                    <ul class="social-icons">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+
+
                         <div class="col-lg-12">
                             <ul class="post-nav">
                                 <li><a href="#">Prev Post</a></li>

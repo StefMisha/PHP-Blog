@@ -16,26 +16,8 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="main-content">
-              <h1>error 404</h1>
-              <span>Страница не найдена</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="medium-gap go-back-home">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 offset-lg-2">
-            <div class="main-content">
-              <div class="row">
-                <div class="col-lg-8">
-                  <div class="left-content">
-
-                  </div>
-                </div>
-              </div>
+              <h1>error 500</h1>
+              <span>Сайт на данный момент не доступен! Приходите потом...</span>
             </div>
           </div>
         </div>
@@ -46,7 +28,11 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
+            <div class="instagram-account">
+              <div class="widget-content">
 
+                  </div>
+                </div>
               </div>
             </div>
           </div>
