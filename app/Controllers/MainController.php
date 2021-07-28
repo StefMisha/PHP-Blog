@@ -2,8 +2,10 @@
 
 namespace app\Controllers;
 
+use app\Exceptions\NotFoundException;
 use app\Models\Articles\Article;
 use app\View\View;
+use http\Exception;
 
 class MainController
 {
@@ -21,6 +23,9 @@ class MainController
     {
         $articles = Article::All(); //подготовленный запрос передаю в метод query объекта класса бд
 
+        if($articles == null){
+            throw new NotFoundException();
+        }
         $this->view->renderHTML('main/main.php', [
             'articles' => $articles,
         ]);

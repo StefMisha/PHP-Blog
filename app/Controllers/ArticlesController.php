@@ -4,7 +4,7 @@ namespace app\Controllers;
 
 use app\Exceptions\NotFoundException;
 use app\Models\Articles\Article;
-use app\Models\User\User;
+use app\Models\Users\User;
 use app\View\View;
 
 class ArticlesController
@@ -36,7 +36,6 @@ class ArticlesController
         }
         $article->setName('Москва любит');
         $article->setText('New text');
-//        $article->setCreatedAt();
         $article->save();
     }
 

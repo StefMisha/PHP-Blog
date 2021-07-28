@@ -67,6 +67,20 @@ abstract class BaseModel
         return $result ? $result[0] : null;
     }
 
+    public static function findOneByColumn($columnName, $value)
+    {
+        $db = Db::getInstance();
+        $result = $db->query(
+            'SELECT * FROM `' . static::getTableName() . '` WHERE `' . $columnName . '` = :VALUE LIMIT 1;',
+            [':VALUE' => $value],
+            static::class
+        );
+        if ($result === []) {
+            return null;
+        }
+        return $result[0];
+    }
+
     public function save()
     {
         $mappedProperties = $this->mapPropertiesToDbFormat();

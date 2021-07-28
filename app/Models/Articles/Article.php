@@ -3,7 +3,7 @@
 namespace app\Models\Articles;
 
 use app\Models\BaseModel;
-use app\Models\User\User;
+use app\Models\Users\User;
 
 class Article extends BaseModel
 {

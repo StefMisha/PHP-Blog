@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/MVCfw" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../LaraWork" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../MVCfw" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../nuxt-learning" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../place" vcs="Git" />

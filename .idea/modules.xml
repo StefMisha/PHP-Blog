@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../LaraWork/.idea/LaraWork.iml" filepath="$PROJECT_DIR$/../LaraWork/.idea/LaraWork.iml" />
       <module fileurl="file://$PROJECT_DIR$/../MVCfw/.idea/MVCfw.iml" filepath="$PROJECT_DIR$/../MVCfw/.idea/MVCfw.iml" />
       <module fileurl="file://$PROJECT_DIR$/../MiniTasks/.idea/Mini tasks.iml" filepath="$PROJECT_DIR$/../MiniTasks/.idea/Mini tasks.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/myTraining.iml" filepath="$PROJECT_DIR$/.idea/myTraining.iml" />

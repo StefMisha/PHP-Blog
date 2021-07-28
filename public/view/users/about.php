@@ -17,7 +17,8 @@
           <div class="col-lg-12">
             <div class="widget-sidebar about-me">
               <div class="widget-header">
-                <h4>About Me</h4>
+                <h4>Пару слов обо мне</h4>
+                  <p></p>
               </div>
               <div class="widget-content">
                 <div class="row">

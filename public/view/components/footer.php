@@ -13,7 +13,6 @@
             </div>
             <div class="col-lg-12">
                 <div class="copyright-text">
-                    <p>all rights reserved. <a href="#">robert imeri</a> 2020.</p>
                 </div>
             </div>
         </div>

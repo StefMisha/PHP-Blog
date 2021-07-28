@@ -1,7 +1,8 @@
 <?php
 
-namespace app\Models\User;
+namespace app\Models\Users;
 
+use app\Exceptions\InvalidArgumentExceptions;
 use app\Models\BaseModel;
 
 class User extends BaseModel
@@ -29,6 +30,11 @@ class User extends BaseModel
     public function getEmail()
     {
         return $this->email;
+    }
+
+    public static function signUp($userData)
+    {
+
     }
 
 }
