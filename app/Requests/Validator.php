@@ -19,6 +19,7 @@ abstract class Validator
 
     abstract public function validated($data);
 
+    //Общий блок валидаци
     public function validEmptyData($dataset) //TODO:: Сделать проверку входных элементов на пустое значение и по аналогии другие схожие проверки
     {
         foreach ($dataset as $key => $data) {
@@ -28,6 +29,7 @@ abstract class Validator
         }
     }
 
+    //общий отлов ошибок
     public function catchErrorValidate($message)
     {
         try {
@@ -42,8 +44,10 @@ abstract class Validator
         $this->errors[] = $messageError;
     }
 
-    public function getErrors(): array
+    public function getErrors()
     {
-        return $this->errors;
+        if(!empty($this->errors)) return $this->errors; else {
+            return false;
+        }
     }
 }

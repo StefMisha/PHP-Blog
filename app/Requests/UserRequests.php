@@ -9,9 +9,6 @@ class UserRequests extends Validator //TODO:: Попробовать сдела�
     {
         $this->validEmptyData($data);
 
-//        if (empty($data['nickname'])) {
-//            $this->catchErrorValidate('Пустое поле nickname...');
-//        }
         if (!preg_match('/[a-zA-Z0-9]+/', $data['nickname'])) {
             $this->catchErrorValidate('Nickname может состоять только из символов латинского алфавита и цифр');
         }

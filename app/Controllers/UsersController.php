@@ -18,18 +18,21 @@ class UsersController
     }
     public function signUp()
     {
-        if (!empty($_POST))
-//            try {
+        if (!empty($_POST)) {
             $validate = new UserRequests($_REQUEST);
-//            var_dump($validate);
-//            $user = User::signUp($_POST);
-//        }
-//        catch (InvalidArgumentExceptions $e) {
-            $this->view->renderHTML('users/signUp.php', ['errors' => $validate->getErrors()]);
-            return;
-//        }
-        echo 'Норм';
+            if (($validate->getErrors())) {
+                $this->view->renderHTML('users/signUp.php', ['errors' => $validate->getErrors()]);
+                return;
+            }
+
+            echo 'Норм';
+            $user = User::signUp($_POST);
+
+            if ($user instanceof User) {
+                $this->view->renderHTML('users/signUpSuccessful.php');
+                return;
+            }
+        }
         $this->view->renderHTML('users/signUp.php');
     }
-
 }
