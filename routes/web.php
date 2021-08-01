@@ -8,5 +8,6 @@ return [
     '~^articles/(\d+)/delete$~' => [\app\Controllers\ArticlesController::class, 'delete'],
 
     '~^users/register$~' => [\app\Controllers\UsersController::class, 'signUp'],
+    '~^users/(\d+)/activate/(.+)$~' => [\app\Controllers\UsersController::class, 'activate'],
 
 ];

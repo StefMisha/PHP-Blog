@@ -9,7 +9,7 @@ use vendor\myVendor\customFeatures;
 
 abstract class BaseModel
 {
-    use customFeatures; //        dd($columns); TODO:че не робит??
+    use customFeatures; //        dd($columns); TODO:че не робит dd??
 
     protected $id;
 
@@ -85,7 +85,7 @@ abstract class BaseModel
     {
         $mappedProperties = $this->mapPropertiesToDbFormat();
         if ($this->id !== null) {
-            $this->update($mappedProperties);
+            $this->update($mappedProperties);//проверить еще раз как идет поиск данных полей на наличие
         } else {
             $this->insert($mappedProperties);
         }

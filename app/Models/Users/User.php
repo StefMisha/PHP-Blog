@@ -11,7 +11,7 @@ class User extends BaseModel
 
     protected $nickname;
     protected $email;
-    protected $isConfirme;
+    protected $isConfirmed;
     protected $role;
     protected $passwordHash;
     protected $authToken;
@@ -34,6 +34,7 @@ class User extends BaseModel
 
     /**
      * @throws InvalidArgumentExceptions
+     * @throws \Exception
      */
     public static function signUp($userData): User
     {
@@ -48,11 +49,17 @@ class User extends BaseModel
         $user->nickname = $userData['nickname'];
         $user->email = $userData['email'];
         $user->passwordHash = $userData['password_hash'];
-        $user->isConfirme = false;
+        $user->isConfirmed = false;
         $user->role = 'user';
         $user->authToken = sha1(random_bytes(100)) . sha1(random_bytes(100));
         $user->save();
 
         return $user;
+    }
+
+    public function activate()//активация условная, сервис по отправки почты не работает локально
+    {
+        $this->isConfirmed = true;
+        $this->save();
     }
 }

@@ -4,6 +4,8 @@
 namespace app\Controllers;
 
 use app\Exceptions\InvalidArgumentExceptions;
+use app\Services\EmailService;
+use app\Services\UserActivationService;
 use app\View\View;
 use app\Models\Users\User;
 use app\Requests\UserRequests;
@@ -25,14 +27,30 @@ class UsersController
                 return;
             }
 
-            echo 'Норм';
-            $user = User::signUp($_POST);
-
+            $user = User::signUp($_POST); //TODO::передавать из валиации массив с отвалидированными данными из input
+            echo '<pre>';
+var_dump($user);
             if ($user instanceof User) {
+                $code = UserActivationService::createActivationCode($user);
+
+                EmailService::send($user, 'Активация', 'userActivation.php', [
+                    'userId' => $user->getId(),
+                    'code' => $code
+                ]);
+
                 $this->view->renderHTML('users/signUpSuccessful.php');
                 return;
             }
         }
         $this->view->renderHTML('users/signUp.php');
+    }
+    public function activate($userId, $activationCode)//активация условная, сервис по отправки почты не работает локально
+    {
+        $user = User::find($userId);
+        $isCodeValid = UserActivationService::checkActivationCode($user, $activationCode);
+        if ($isCodeValid) {
+            $user->activate();
+            echo 'Ok';
+        }
     }
 }
