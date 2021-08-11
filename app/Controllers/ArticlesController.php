@@ -5,15 +5,10 @@ namespace app\Controllers;
 use app\Exceptions\NotFoundException;
 use app\Models\Articles\Article;
 use app\Models\Users\User;
-use app\View\View;
+use function vendor\myVendor\dd;
 
-class ArticlesController
+class ArticlesController extends AbstractController
 {
-    public function __construct()
-    {
-        $this->view = new View(__DIR__ . '/../../public/view');
-    }
-
     public function show(int $id)
     {
         $article = Article::find($id);
@@ -39,22 +34,17 @@ class ArticlesController
         $article->save();
     }
 
-    public function create()
+    public function create($user)
     {
-        $author = User::find(1);
-
+        $author = User::find($user->getId());
+        dd($author);
         $article = new Article();
         $article->setAuthor($author);
         $article->setName('Ну че');
         $article->setText('3й пост');
         $article->setCreatedAt();
 
-        echo '<pre>';
-        var_dump($article);
         $article->save();
-
-        echo '<pre>';
-        var_dump($article);
     }
 
     public function delete($id)

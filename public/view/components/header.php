@@ -75,11 +75,12 @@
     <div class="mobile-menu-overlay"></div>
 
     <section class="above-header">
-      <div class="container">
+            <?= !empty($user) ? '<a href="users/logout"> Привет ' . $user->getNickname() . ' </a>' :  '<h3><a href="users/login"> Вход </a></h3>'?>
+        <div class="container">
         <div class="row">
-          <div class="col-lg-4 align-self-center">
+
+            <div class="col-lg-4 align-self-center">
             <ul class="social-icons">
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
               <li><a href="#"><i class="fa fa-behance"></i></a></li>

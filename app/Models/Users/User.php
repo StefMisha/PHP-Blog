@@ -32,6 +32,16 @@ class User extends BaseModel
         return $this->email;
     }
 
+    public function getIsConfirmed()
+    {
+        return $this->isConfirmed;
+    }
+
+    public function getAuthToken()
+    {
+        return $this->authToken;
+    }
+
     /**
      * @throws InvalidArgumentExceptions
      * @throws \Exception
@@ -48,8 +58,8 @@ class User extends BaseModel
         $user = new User();
         $user->nickname = $userData['nickname'];
         $user->email = $userData['email'];
-        $user->passwordHash = $userData['password_hash'];
-        $user->isConfirmed = false;
+        $user->passwordHash = password_hash($userData['password_hash'], PASSWORD_DEFAULT);
+        $user->isConfirmed = true;//пока не до конца реализована система подтверждения регистрации через email
         $user->role = 'user';
         $user->authToken = sha1(random_bytes(100)) . sha1(random_bytes(100));
         $user->save();
@@ -61,5 +71,28 @@ class User extends BaseModel
     {
         $this->isConfirmed = true;
         $this->save();
+    }
+
+    public static function login($user)
+    {
+        $user = User::findOneByColumn('email', $user['email']);
+
+        $user->refreshAuthToken();
+        $user->save();
+
+        return $user;
+    }
+
+    public function getPasswordHash()
+    {
+        return $this->passwordHash;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function refreshAuthToken()
+    {
+        $this->authToken = sha1(random_bytes(100)) . sha1(random_bytes(100));
     }
 }

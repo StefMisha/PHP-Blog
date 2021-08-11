@@ -4,12 +4,13 @@
     "authors": [
         {
             "name": "Mikhail",
-            "email": "email"
+            "email": "email@mail.ru"
         }
     ],
     "require": {
       "ext-pdo": "*",
-      "ext-mbstring": "*"
+      "ext-mbstring": "*",
+        "vlucas/phpdotenv": "^5.3"
     },
     "autoload": {
         "psr-4": {

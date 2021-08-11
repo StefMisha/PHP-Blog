@@ -4,21 +4,9 @@ namespace app\Controllers;
 
 use app\Exceptions\NotFoundException;
 use app\Models\Articles\Article;
-use app\View\View;
-use http\Exception;
 
-class MainController
+class MainController extends AbstractController
 {
-    /**
-     * @var View
-     */
-    private View $view;
-
-    public function __construct()
-    {
-        $this->view = new View(__DIR__ . '/../../public/view');
-    }
-
     public function main()
     {
         $articles = Article::All(); //подготовленный запрос передаю в метод query объекта класса бд

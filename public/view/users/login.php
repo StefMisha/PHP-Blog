@@ -63,7 +63,7 @@
                 <div class="col-lg-12">
                     <div class="widget-sidebar contact-me">
                         <div class="widget-header">
-                            <h4>Регистрация</h4>
+                            <h4>Авторизация</h4>
                         </div>
                         <div class="widget-post">
                             <div class="contact-form">
@@ -75,40 +75,26 @@
                                     <?php endforeach; ?>
                                 <?php endif; ?>
 
-                                <form action="/users/register" method="post">
+                                <form action="/users/login" method="post">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12">
                                             <fieldset>
                                                 <label>
-                                                    <input name="nickname" type="text" class="form-control" placeholder="Nickname...">
+                                                    <input name="email" type="email" class="form-control" pattern="[^ @]*@[^ @]*" placeholder="Your email..." value="<?= $_POST['email'] ?? '' ?>">
                                                 </label>
                                             </fieldset>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-12">
                                             <fieldset>
                                                 <label>
-                                                    <input name="first_name" type="text" class="form-control" placeholder="Имя...">
-                                                </label>
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12">
-                                            <fieldset>
-                                                <label>
-                                                    <input name="email" type="email" class="form-control" pattern="[^ @]*@[^ @]*" placeholder="Your email..." required="">
-                                                </label>
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12">
-                                            <fieldset>
-                                                <label>
-                                                    <input name="password_hash" type="password" class="form-control" placeholder="Password..." required="">
+                                                    <input name="password_hash" type="password" class="form-control" placeholder="Password..." value="<?= $_POST['password_hash'] ?? '' ?>">
                                                 </label>
                                             </fieldset>
                                         </div>
 
                                         <div class="col-lg-12">
                                             <fieldset>
-                                                <input type="submit" class="input-group-btn" value="Зарегистрироваться">
+                                                <input type="submit" class="input-group-btn" value="Авторизация">
                                             </fieldset>
                                         </div>
                                     </div>

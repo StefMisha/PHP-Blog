@@ -18,7 +18,7 @@ class EmailService
         require __DIR__ . '/../../public/view/mail/' . $templateName;
         $body = ob_get_contents();
         ob_end_clean();
-
+var_dump($body);//вместо рассылки почты, вывожу ссылку на подтверждение при регистрации
         mail($receiver->getEmail(), $subject, $body, 'Content_Type: text/html; charset=UTF-8');
     }
 }

@@ -9,7 +9,7 @@ use vendor\myVendor\customFeatures;
 
 abstract class BaseModel
 {
-    use customFeatures; //        dd($columns); TODO:че не робит dd??
+    //use customFeatures; //        dd($columns); TODO:че не робит dd??
 
     protected $id;
 
