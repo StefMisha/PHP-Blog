@@ -3,12 +3,14 @@
 use app\View\View;
 use app\Exceptions\NotFoundException;
 use app\Exceptions\DbException;
+use app\Exceptions\UnauthorizedException;
+
 
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
-use \vendor\myVendor\customFeatures; //        dd($columns); TODO:че не робит dd??
+//use \vendor\myVendor\customFeatures; //        dd($columns); TODO: dd??
 
 try {
     spl_autoload_register(function (string $className) {
@@ -42,6 +44,9 @@ try {
 } catch (DbException $e) {
     $view = new View(__DIR__ . '/view/errors');
     $view->renderHTML('500.php', ['error' => $e->getMessage()], 500);
+} catch (UnauthorizedException $e) {
+    $view = new View(__DIR__ . '/view/errors');
+    $view->renderHtml('401.php', ['error' => $e->getMessage()], 401);
 } catch (NotFoundException $e) {
     $view = new View(__DIR__ . '/view/errors');
     $view->renderHTML('404.php', ['error' => $e->getMessage()], 404);

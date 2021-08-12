@@ -55,4 +55,16 @@ class Article extends BaseModel
     {
         return $this->createdAt;
     }
+
+    public static function createFromArray($fields, User $author): Article
+    {
+        $article = new Article();
+
+        $article->setAuthor($author);
+        $article->setName($fields['name']);
+        $article->setText($fields['text']);
+        $article->save();
+
+        return $article;
+    }
 }

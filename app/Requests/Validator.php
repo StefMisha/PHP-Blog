@@ -20,11 +20,27 @@ abstract class Validator
     abstract public function validated($data);
 
     //Общий блок валидаци
-    public function validEmptyData($dataset) //TODO:: Сделать проверку входных элементов на пустое значение и по аналогии другие схожие проверки
+    public function validEmptyData($dataSet) //TODO:: Сделать проверку входных элементов на пустое значение и по аналогии другие схожие проверки
     {
-        foreach ($dataset as $key => $data) {
+        foreach ($dataSet as $key => $data) {
             if (empty($data)) {
-                $this->catchErrorValidate('Поле ' . $key . ' пустое');
+                $this->catchErrorValidate('Поле ' . $this->translationOfTheNameOfFields($key) . ' пустое');
+            }
+        }
+    }
+
+    public function translationOfTheNameOfFields ($value): string
+    {
+        $names = [
+          'name' => 'название',
+          'text' => 'текст',
+          'age' => 'возраст',
+          'nickname' => 'никнейм'
+        ];
+
+        foreach ($names as $kay => $name){
+            if ($kay === $value) {
+                return $name;
             }
         }
     }

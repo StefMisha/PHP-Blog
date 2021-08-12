@@ -4,8 +4,8 @@ namespace app\Controllers;
 
 use app\Exceptions\NotFoundException;
 use app\Models\Articles\Article;
-use app\Models\Users\User;
-use function vendor\myVendor\dd;
+use app\Exceptions\UnauthorizedException;
+use app\Requests\ArticleRequests;
 
 class ArticlesController extends AbstractController
 {
@@ -34,20 +34,26 @@ class ArticlesController extends AbstractController
         $article->save();
     }
 
-    public function create($user)
+    public function add()
     {
-        $author = User::find($user->getId());
-        dd($author);
-        $article = new Article();
-        $article->setAuthor($author);
-        $article->setName('Ну че');
-        $article->setText('3й пост');
-        $article->setCreatedAt();
+        if (!empty($_POST)) {
+            if ($this->user === null) {
+                throw new UnauthorizedException();
+            }
+            $validate = new ArticleRequests($_POST);
+            if ($validate->getErrors()){
+                $this->view->renderHTML('/article/create.php', ['errors' => $validate->getErrors()]);
+                return;
+            }
+            $article = Article::createFromArray($_POST, $this->user);
 
-        $article->save();
+            header('Location: /articles/' . $article->getId(), true, 302);
+            exit();
+        }
+        $this->view->renderHTML('/article/create.php');
     }
 
-    public function delete($id)
+    public function delete(int $id)
     {
         $article = Article::find($id);
         if ($article === null){
