@@ -4,9 +4,8 @@ return [
     '~^$~' => [\app\Controllers\MainController::class, 'main'],
     '~^articles/(\d+)$~' => [\app\Controllers\ArticlesController::class, 'show'],
 
-
-    '~^articles/(\d+)/edit$~' => [\app\Controllers\ArticlesController::class, 'edit'],
     '~^articles/add$~' => [\app\Controllers\ArticlesController::class, 'add'],
+    '~^articles/(\d+)/edit$~' => [\app\Controllers\ArticlesController::class, 'edit'],
     '~^articles/(\d+)/delete$~' => [\app\Controllers\ArticlesController::class, 'delete'],
 
 

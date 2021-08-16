@@ -1,8 +1,5 @@
 <?php include_once __DIR__ . '/../components/header.php'; ?>
 
-<?php include_once __DIR__ . '/../components/header.php'; ?>
-
-
 <!-- change class -->
 <div class="change-class"></div>
 
@@ -22,9 +19,6 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="single-post">
-                                <div class="post-image">
-                                </div>
-                                <div class="down-content col-lg-6 col-md-12 col-sm-12">
 
                                     <h1>Создание новой статьи</h1>
                                     <?php if(!empty($errors)): ?>
@@ -42,22 +36,6 @@
                                         <input type="submit" value="Создать">
                                     </form>
 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="widget-post leave-comment">
-                                <div class="widget-header">
-                                </div>
-                                <div class="widget-content">
-                                    <div class="contact-form">
-                                        <form id="contact" action="#" method="post">
-                                            <div class="row">
-
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -67,3 +45,41 @@
     </div>
 </section>
 
+<div class="instagram-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="instagram-account">
+                    <div class="widget-content">
+                        <div class="widget-header">
+                            <h4><a href="#">@shareenBlog</a></h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="instagram-item">
+                                    <img src="http://placehold.it/255x220" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="instagram-item">
+                                    <img src="http://placehold.it/255x220" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="instagram-item">
+                                    <img src="http://placehold.it/255x220" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="instagram-item">
+                                    <img src="http://placehold.it/255x220" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include_once __DIR__ . '/../components/footer.php'; ?>

@@ -2,6 +2,7 @@
 
 namespace app\Models\Articles;
 
+use app\Exceptions\InvalidArgumentExceptions;
 use app\Models\BaseModel;
 use app\Models\Users\User;
 
@@ -66,5 +67,23 @@ class Article extends BaseModel
         $article->save();
 
         return $article;
+    }
+
+    public function updateFromArray($fields): Article
+    {
+        var_dump($fields, "модель");
+        if (empty($fields['name'])) {
+            throw new InvalidArgumentExceptions('Не передан текст статьи');
+        }
+        if (empty($fields['text'])) {
+            throw new InvalidArgumentExceptions('Не передан текст статьи');
+        }
+
+        $this->setName($fields['name']);
+        $this->setName($fields['text']);
+
+        $this->save();
+
+        return $this;
     }
 }

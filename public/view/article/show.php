@@ -56,7 +56,9 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="col-lg-12">
+                                        <a href="/articles/<?= $article->getId() ?>/edit" class="filled-button">РЕДАКТИРОВАТЬ ЗАПИСЬ</a>
+                            </div>
 
                         <div class="col-lg-12">
                             <ul class="post-nav">

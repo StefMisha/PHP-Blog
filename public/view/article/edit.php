@@ -28,13 +28,26 @@
                                 </div>
                                 <div class="down-content">
 
-                                    <h4><?= $article->getName() ?></h4>
                                     <ul class="post-info">
-                                        <li><a href="#"><?= $article->getAuthor()->getNickName() ?></a></li>
-                                        <li><a href="#"><?= $article->getCreatedAt() ?></a></li>
+                                        <h1>Редактирование статьи</h1>
+                                        <?php if(!empty($errors)): ?>
+                                            <?php foreach ($errors as $error): ?>
+                                                <div style="color: red;"><?= $error ?></div>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+
+                                        <form action="/articles/<?= $article->getId() ?>/edit">
+                                            <label for="name">Название статьи</label><br>
+                                            <input type="text" name="name" class="form-control" id="name" value="<?= $_POST['name'] ?? '' ?>" size="50"><br>
+                                            <br>
+                                            <label for="text">Текст статьи</label><br>
+                                            <textarea name="text" class="form-control" id="text" rows="10" cols="80"><?= $_POST['text'] ?? '' ?></textarea><br>
+                                            <br>
+                                            <input type="submit" value="Создать">
+                                        </form>
+
                                         <li><a href="#">3 Comments</a></li>
                                     </ul>
-                                    <p class="first-paragraph"><?= $article->getText() ?></p>
                                     <div class="row">
                                         <div class="col-lg-7 col-md-6">
                                             <div class="tags">
@@ -123,41 +136,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12">
-                            <div class="widget-post leave-comment">
-                                <div class="widget-header">
-                                    <h4>Leave a comment</h4>
-                                </div>
-                                <div class="widget-content">
-                                    <div class="contact-form">
-                                        <form id="contact" action="#" method="post">
-                                            <div class="row">
-                                                <div class="col-lg-6 col-md-12 col-sm-12">
-                                                    <fieldset>
-                                                        <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
-                                                    </fieldset>
-                                                </div>
-                                                <div class="col-lg-6 col-md-12 col-sm-12">
-                                                    <fieldset>
-                                                        <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your email..." required="">
-                                                    </fieldset>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <fieldset>
-                                                        <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your comment..." required=""></textarea>
-                                                    </fieldset>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <fieldset>
-                                                        <button type="submit" id="form-submit" class="filled-button">Post Comment</button>
-                                                    </fieldset>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -174,28 +153,7 @@
                         <div class="widget-header">
                             <h4><a href="#">@shareenBlog</a></h4>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="instagram-item">
-                                    <img src="http://placehold.it/255x220" alt="">
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="instagram-item">
-                                    <img src="http://placehold.it/255x220" alt="">
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="instagram-item">
-                                    <img src="http://placehold.it/255x220" alt="">
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="instagram-item">
-                                    <img src="http://placehold.it/255x220" alt="">
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
