@@ -69,9 +69,9 @@ class Article extends BaseModel
         return $article;
     }
 
-    public function updateFromArray($fields): Article
+    public function updateFromArray($fields)
     {
-        var_dump($fields, "модель");
+//        var_dump($fields, "модель"); die;
         if (empty($fields['name'])) {
             throw new InvalidArgumentExceptions('Не передан текст статьи');
         }
@@ -80,7 +80,7 @@ class Article extends BaseModel
         }
 
         $this->setName($fields['name']);
-        $this->setName($fields['text']);
+        $this->setText($fields['text']);
 
         $this->save();
 

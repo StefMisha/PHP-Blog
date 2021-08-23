@@ -6,6 +6,7 @@ return [
 
     '~^articles/add$~' => [\app\Controllers\ArticlesController::class, 'add'],
     '~^articles/(\d+)/edit$~' => [\app\Controllers\ArticlesController::class, 'edit'],
+    '~^articles/(\d+)/store~' => [\app\Controllers\ArticlesController::class, 'store'],
     '~^articles/(\d+)/delete$~' => [\app\Controllers\ArticlesController::class, 'delete'],
 
 
