@@ -30,20 +30,20 @@
 
                                     <ul class="post-info">
                                         <h1>Редактирование статьи</h1>
-                                        <?php if(!empty($errors)): ?>
+                                        <?php if (!empty($errors)): ?>
                                             <?php foreach ($errors as $error): ?>
                                                 <div style="color: red;"><?= $error ?></div>
                                             <?php endforeach; ?>
                                         <?php endif; ?>
 
-                                        <form action="/articles/<?= $article->getId() ?>/edit">
+                                        <form action="/articles/<?= $article->getId() ?>/store" method="post">
                                             <label for="name">Название статьи</label><br>
-                                            <input type="text" name="name" class="form-control" id="name" value="<?= $_POST['name'] ?? '' ?>" size="50"><br>
+                                            <input type="text" name="name" id="name" value="<?= $_POST['name'] ?? $article->getName() ?>" size="50"><br>
                                             <br>
                                             <label for="text">Текст статьи</label><br>
-                                            <textarea name="text" class="form-control" id="text" rows="10" cols="80"><?= $_POST['text'] ?? '' ?></textarea><br>
+                                            <textarea name="text" id="text" rows="10" cols="80"><?= $_POST['text'] ?? $article->getText() ?></textarea><br>
                                             <br>
-                                            <input type="submit" value="Создать">
+                                            <input type="submit" value="Обновить">
                                         </form>
 
                                         <li><a href="#">3 Comments</a></li>
@@ -162,4 +162,4 @@
 </div>
 
 
-<?php include_once __DIR__ . '/../components/footer.php'; ?>
+<?php //include_once __DIR__ . '/../components/footer.php'; ?>
